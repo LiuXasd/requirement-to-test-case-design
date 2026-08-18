@@ -1,0 +1,4 @@
+interface:
+  display_name: "Requirement Test Design"
+  short_description: "Turn requirements into traceable test cases"
+  default_prompt: "Use $requirement-to-test-case-design to turn these requirements into traceable, executable test cases."
