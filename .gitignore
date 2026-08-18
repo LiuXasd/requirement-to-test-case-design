@@ -1,0 +1,6 @@
+*
+!.gitignore
+!README.md
+!LICENSE
+!requirement-to-test-case-design/
+!requirement-to-test-case-design/**
