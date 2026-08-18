@@ -18,17 +18,16 @@ Treat the explicit requirement as the highest authority. Use this order when sou
 5. User clarification
 6. Existing test cases
 7. Logs, examples, or observations
-8. AI inference
 
 Keep a concise fact register while working:
 
 - **Known**: supported by an authoritative source.
 - **Clarified**: supplied by the user and not in conflict with a higher source.
-- **Inferred**: useful interpretation or risk; never treat it as required behaviour.
+- **Potential consideration**: a question or risk to investigate; never treat it as a fact, requirement, expected behaviour, test precondition, or test action.
 - **TBD**: unavailable information.
 - **Conflict**: values that disagree, their sources, the authority decision, and impact.
 
-Never silently invent required behaviour, timing, thresholds, state transitions, retries, error handling, logs, signal values, API responses, database values, or verification evidence. Mark unsupported items as `TBD`; ask only when the gap blocks a reliable test objective, action, expected behaviour, or pass/fail criterion.
+Never make, store, or use assumptions. Never silently invent required behaviour, timing, thresholds, state transitions, retries, error handling, logs, signal values, API responses, database values, verification evidence, preconditions, or test data. Mark all unsupported information as `TBD`; ask only when the gap blocks a reliable test objective, action, expected behaviour, or pass/fail criterion. Do not turn a TBD into a test step, expected result, Priority rationale, or Test Level rationale.
 
 When a lower-authority source conflicts with a requirement, retain the requirement for expected behaviour and record the conflict. Do not reinterpret a conflict as a requirement change.
 
@@ -38,7 +37,7 @@ When a lower-authority source conflicts with a requirement, retain the requireme
 2. Access each supplied DNG link with the DNG authentication already configured in the environment. Do not request, reveal, copy, or store authentication tokens. Extract the item ID, title, requirement text, linked artifacts, and revision/baseline when visible. Keep the DNG URL and item ID in traceability. If access or retrieval fails, report the failure concisely and ask for an export or the relevant text; do not infer link content.
 3. Once requirements are present, ask once whether supporting material should be considered before analysis. Accept DNG links/exports, documents, existing cases, interfaces, state/sequence diagrams, APIs, database schemas, logs, traces, signal definitions, configuration material, and defect history.
 4. Analyse all supplied material before asking design questions. If later evidence arrives, assess its authority and impact on facts, conflicts, objectives, questions, coverage, and affected cases.
-5. Extract a context model where supported: requirement ID/text, feature or module, actor, trigger, preconditions, inputs, outputs, constraints, states, interfaces, dependencies, configurations, failures, recovery, observability, and ambiguities. Label facts as known, inferred, ambiguous, conflicting, or TBD.
+5. Extract a context model where supported: requirement ID/text, feature or module, actor, trigger, preconditions, inputs, outputs, constraints, states, interfaces, dependencies, configurations, failures, recovery, observability, and ambiguities. Label items as known, ambiguous, conflicting, TBD, or potential consideration.
 6. Assess testability: observable outcome, pass/fail rule, inputs, boundaries, timing, state transitions, failures, recovery, dependencies, interfaces, and configuration variants.
 7. Select only relevant test dimensions: nominal, negative, boundary, state transition, sequence, timing, retry/recovery, error handling, interruption, interface, configuration, dependency, persistence/restart, concurrency, load/performance, compatibility, security, data integrity, diagnostics, end-to-end, fault injection, or degraded operation. Do not assume a domain, protocol, tool, or interface.
 
@@ -97,7 +96,7 @@ Before generating detailed test cases, ask once whether the user can provide a p
 
 Use a naming convention provided by the user. If none is provided and identifiers are needed, propose a readable provisional convention and label it `TBD naming convention`; do not block the design.
 
-Before producing the final workbook, request the user's Excel (`.xlsx`) test-case template if one has not been supplied. If the user confirms that no template exists, generate a default, editable `.xlsx` template before populating it. The default template must include the applicable internal-schema fields as column headers, a clear title, readable formatting, frozen headers, filters, and a dedicated `Open Items` worksheet for TBDs, assumptions, conflicts, and potential omissions. Do not delay test-case design while waiting for the template; generate the internal cases first and then render them into the supplied or generated workbook.
+Before producing the final workbook, request the user's Excel (`.xlsx`) test-case template if one has not been supplied. If the user confirms that no template exists, generate a default, editable `.xlsx` template before populating it. The default template must include the applicable internal-schema fields as column headers, a clear title, readable formatting, frozen headers, filters, and a dedicated `Open Items` worksheet for TBDs, conflicts, and potential omissions. Do not delay test-case design while waiting for the template; generate the internal cases first and then render them into the supplied or generated workbook.
 
 When an Excel (`.xlsx`) test-case template is provided or generated:
 
@@ -109,7 +108,7 @@ When an Excel (`.xlsx`) test-case template is provided or generated:
 6. Verify the finished workbook: inspect representative populated ranges, scan for formula errors where formulas exist, and visually render all populated worksheets to check clipping, wrapping, layout, and formatting.
 7. Validate required cells, names, traceability, Priority, Test Level, step order, and visible TBD/conflict notes before delivering the output.
 
-Use this internal schema as applicable, rendering only fields the template supports: Requirement ID, Test Case ID, Name, Module/Feature, Objective, Type, Preconditions, Environment, Data, Steps, Expected Behaviour, Expected Result, Verification Source, Expected Evidence, Postconditions, Priority, Test Level, Traceability, Assumptions, TBDs, and Notes.
+Use this internal schema as applicable, rendering only fields the template supports: Requirement ID, Test Case ID, Name, Module/Feature, Objective, Type, Preconditions, Environment, Data, Steps, Expected Behaviour, Expected Result, Verification Source, Expected Evidence, Postconditions, Priority, Test Level, Traceability, TBDs, and Notes.
 
 ## Case-writing rules
 
@@ -151,4 +150,4 @@ Before delivering, verify:
 - Naming, Priority, Test Level, and template requirements are satisfied.
 - TBDs and conflicts are visible.
 
-Provide a brief coverage and open-items summary alongside the cases, unless the supplied template is the sole requested deliverable. Include requirement IDs, coverage status, uncovered dimensions/reasons, TBDs, assumptions, and conflicts.
+Provide a brief coverage and open-items summary alongside the cases, unless the supplied template is the sole requested deliverable. Include requirement IDs, coverage status, uncovered dimensions/reasons, TBDs, and conflicts.
