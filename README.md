@@ -7,7 +7,7 @@ It is designed for teams that need more than a happy-path test list: it analyses
 ## Capabilities
 
 - Analyse requirements, supporting documentation, and DNG links.
-- Preserve source authority, conflicts, assumptions, and TBD items.
+- Preserve source authority, conflicts, and TBD items without making assumptions.
 - Use adaptive batch clarification ("Grill-Me") without repeatedly asking known-unavailable questions.
 - Design positive, negative, failure, boundary, and risk-based corner/combination cases.
 - Assign `Priority` (`Low`, `Med`, `High`, `Critical`) and independent test complexity (`XS`, `S`, `M`, `L`).
